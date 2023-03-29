@@ -28,12 +28,12 @@
             <!--start main-->
 
             <form method="post" asp-action="Index">
-                <div>
+                <div class="fuente-input">
                     <label asp-for="Email" class="form-class"></label>
-                    <input asp-for="Email" class="form-control" placeholder="Ingrese el correo" />
+                    <input asp-for="Email" class="form-control fuente-input" placeholder="Ingrese el correo" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div>
+                <div class="fuente-input">
                     <br />
                     <label asp-for="Password" class="control-label"></label>
                     <input type="password" asp-for="Password" class="form-control" placeholder="Ingrese la clave" />
