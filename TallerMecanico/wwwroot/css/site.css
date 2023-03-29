@@ -1,52 +1,30 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-
-.fondo-login {
-    display: flex;
-    background-image: url("../img/Login_img.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 16px;
     margin: 0;
     padding: 0;
 }
 
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+@media (min-width: 600px) {
+    html {
+        font-size: 12px;
+    }
 }
 
-/* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+@media (max-width: 1080px) {
+    html {
+        font-size: 32px;
+    }
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 600px) {
-    html {
-        font-size: 10px;
-    }
 }
 
 .border-top {
@@ -66,12 +44,14 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a {
+    color: #0366d6;
 }
 
 body {
@@ -96,11 +76,21 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
-.left-login {
+.fondo-login {
     display: flex;
+    background-image: url("../img/Login_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.left-login {
+    width: 680px;
     color: white;
-    width: 720px;
-    margin: 180px 10px 50px 20px;
+    margin: 200px 80px 62px 110px;
     padding: 0;
 }
 
@@ -121,9 +111,14 @@ body {
     padding: 0;
 }
 
-    .titulo-login h1 {
-        font-size: 45px;
-    }
+.fuente-input {
+    margin-right: 500px;
+    margin-left: 0;
+}
+
+.titulo-login h1 {
+    font-size: 45px;
+}
 
 .titulo-inicio {
     text-align: center;
@@ -193,7 +188,6 @@ ul {
     padding: 30px 20px;
     font-size: 30px;
     background-color: #060724;
-  
 }
 
 #fondo-home {
@@ -215,7 +209,6 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
     list-style-type: none;
-    
     overflow: hidden;
 }
 
@@ -224,44 +217,47 @@ ul {
     border-color: green;
     color: white;
     font-size: 26px;
-   
-    width:250px;
+    width: 250px;
 }
+
 .bi-plus-lg {
     color: white;
-    font-size:25px;
+    font-size: 25px;
 }
+
 table {
     margin: 20px 40px 10px 40px;
     padding: 2px 10px 2px 20px;
     width: 2000px;
 }
+
 td, th {
     font-size: 18px;
     width: 20%;
     padding: 20px;
     text-align: center;
 }
+
 .h3 {
     font-size: 25px;
     background-color: #060724;
-    margin-left:10px;
+    margin-left: 10px;
 }
+
 div > h3 {
     background-color: #060724;
     color: white;
     align-items: center;
-    padding:30px;
-    width:2000px;
+    padding: 30px;
+    width: 2000px;
     border: none;
-
 }
 
-.table-container-div{
+.table-container-div {
     width: 2000px;
 }
 
-.div-insertar{
+.div-insertar {
     width: 2400px;
     margin-left: 10px;
 }
