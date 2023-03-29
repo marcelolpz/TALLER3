@@ -12,7 +12,12 @@ namespace TallerMecanico.Models.Domain
         public DbSet<Modulo> Modulo { get; set; }
         public DbSet<AgrupadoModulos> AgrupadoModulos { get; set; }
         public DbSet<ModulosRoles> ModulosRoles { get; set; }
-        public DbSet<Estado> Estados { get; set; }   
+        public DbSet<Estado> Estados { get; set; }
+        public DbSet<Marca> Marca { get; set; }
+        public DbSet<Modelo> Modelo { get; set; }
+        public DbSet<Color> Color { get; set; }
+        public DbSet<Vehiculo> Vehiculo { get; set; }
+        public DbSet<VehiculoMecanico> VehiculoMecanico { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +28,11 @@ namespace TallerMecanico.Models.Domain
             modelBuilder.ApplyConfiguration(new AgrupadoModulosConfig());
             modelBuilder.ApplyConfiguration(new ModulosRolesConfig());
             modelBuilder.ApplyConfiguration(new EstadoConfig());
+            modelBuilder.ApplyConfiguration(new MarcaConfig());
+            modelBuilder.ApplyConfiguration(new ModeloConfig());
+            modelBuilder.ApplyConfiguration(new ColorConfig());
+            modelBuilder.ApplyConfiguration(new VehiculoConfig());
+            modelBuilder.ApplyConfiguration(new VehiculoMecanicoConfig());
         }
     }
 }

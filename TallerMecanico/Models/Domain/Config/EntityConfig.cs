@@ -16,6 +16,8 @@ namespace TallerMecanico.Models.Domain.Config
                 builder.Property(s => s.Correo).HasColumnType("varchar(100)").HasColumnName("Correo");
                 builder.Property(s => s.Password).HasColumnType("varchar(100)").HasColumnName("Password");
                 builder.Property(s => s.recovery).HasColumnType("varchar(255)").HasColumnName("Recovery_token");
+                builder.HasMany(a => a.Vehiculos).WithOne(a => a.Usuario).HasForeignKey(c => c.UsuarioId);//configuro llave foranea
+                builder.HasMany(a => a.VehiculoMecanicos).WithOne(a => a.Usuario).HasForeignKey(c => c.UsuarioId);//configuro llave foranea
             }
         }
 
@@ -70,9 +72,54 @@ namespace TallerMecanico.Models.Domain.Config
         {
             public void Configure(EntityTypeBuilder<Estado> builder)
             {
-
                 builder.HasKey(e => e.idEstado);
                 builder.Property(s => s.Nombre).HasColumnType("varchar(25)").HasColumnName("Nombre");
+                builder.HasMany(a => a.VehiculoMecanicos).WithOne(a => a.Estado).HasForeignKey(c => c.EstadoId);//configuro llave foranea
+            }
+        }
+        public class MarcaConfig : IEntityTypeConfiguration<Marca>
+        {
+            public void Configure(EntityTypeBuilder<Marca> builder)
+            {
+                builder.HasKey(e => e.MarcaId);// configuro llave primaria
+                builder.Property(s => s.Nombre).HasColumnType("varchar(25)").HasColumnName("Nombre");
+                builder.HasMany(a => a.Modelos).WithOne(a => a.Marca).HasForeignKey(c => c.MarcaId);//configuro llave foranea
+            }
+        }
+
+        public class ModeloConfig : IEntityTypeConfiguration<Modelo>
+        {
+            public void Configure(EntityTypeBuilder<Modelo> builder)
+            {
+                builder.HasKey(e => e.ModeloId);// configuro llave primaria
+                builder.Property(s => s.Nombre).HasColumnType("varchar(25)").HasColumnName("Nombre");
+                builder.HasMany(a => a.Vehiculos).WithOne(a => a.Modelo).HasForeignKey(c => c.ModeloId);//configuro llave foranea
+            }
+        }
+
+        public class ColorConfig : IEntityTypeConfiguration<Color>
+        {
+            public void Configure(EntityTypeBuilder<Color> builder)
+            {
+                builder.HasKey(e => e.ColorId);// configuro llave primaria
+                builder.Property(s => s.Nombre).HasColumnType("varchar(25)").HasColumnName("Nombre");
+                builder.HasMany(a => a.Vehiculos).WithOne(a => a.Color).HasForeignKey(c => c.ColorId);//configuro llave foranea
+            }
+        }
+
+        public class VehiculoConfig : IEntityTypeConfiguration<Vehiculo>
+        {
+            public void Configure(EntityTypeBuilder<Vehiculo> builder)
+            {
+                builder.HasKey(e => e.VehiculoId);// configuro llave primaria
+            }
+        }
+
+        public class VehiculoMecanicoConfig : IEntityTypeConfiguration<VehiculoMecanico>
+        {
+            public void Configure(EntityTypeBuilder<VehiculoMecanico> builder)
+            {
+                builder.HasKey(e => e.VehiculoMecanicoId);// configuro llave primaria
             }
         }
     }
