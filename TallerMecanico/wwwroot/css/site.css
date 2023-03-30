@@ -195,10 +195,11 @@ html {
         background-image: url('../img/Home.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        height: 110vh;
+        height: 100vh;
         width: 100vw;
         margin: 0;
         padding: 0;
+        
     }
 
     .navbar-home {
@@ -279,7 +280,7 @@ html {
 
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1980px) {
     html {
         font-size: 32px;
     }
@@ -465,7 +466,7 @@ html {
         background-image: url('../img/Home.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        height: 110vh;
+        height: 100vh;
         width: 100vw;
         margin: 0;
         padding: 0;
