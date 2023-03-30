@@ -157,6 +157,17 @@ html {
         padding: 10px 20px;
     }
 
+    .card {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px #ccc;
+        padding: 10px;
+        width: 800px;
+        height: 500px;
+        font-size: 28px;
+        text-align: center;
+        margin-left: 200px;
+    }
+
     .card-recuperacion {
         border: 1px solid #ccc;
         box-shadow: 2px 2px 5px #ccc;
@@ -427,6 +438,17 @@ html {
     .nav-recovery {
         color: #060724;
         padding: 10px 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px #ccc;
+        padding: 10px;
+        width: 900px;
+        height: 600px;
+        font-size: 28px;
+        text-align: center;
+        margin-left: 400px;
     }
 
     .card-recuperacion {
