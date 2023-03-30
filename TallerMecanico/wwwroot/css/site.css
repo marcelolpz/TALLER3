@@ -41,11 +41,17 @@ html {
     a.navbar-brand {
         white-space: normal;
         text-align: center;
-        word-break: break-all;
+        color: white;
+        font-size: 20px;
     }
 
-    a {
+    a:hover {
         color: #0366d6;
+    }
+
+    a.nav-item {
+        color: white;
+        font-size: 28px;
     }
 
     body {
@@ -197,13 +203,13 @@ html {
 
     .navbar-home {
         background-color: #060724;
-        font-size: 30px;
-        display: inline-block;
+        font-size: 20px;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         list-style-type: none;
         overflow: hidden;
+        width: 100%;
+        color: white;
     }
 
     .btn-outline-dark {
@@ -265,6 +271,10 @@ html {
     #botonRecovery {
         background-color: green;
         color: white;
+    }
+
+    .navbar li{
+        list-style: none;
     }
 
 }
@@ -301,11 +311,17 @@ html {
     a.navbar-brand {
         white-space: normal;
         text-align: center;
-        word-break: break-all;
+        color: white;
+        font-size: 28px;
     }
 
-    a {
+    a:hover {
         color: #0366d6;
+    }
+
+    a.nav-item{
+        color:white;
+        font-size:28px;
     }
 
     body {
@@ -457,15 +473,14 @@ html {
 
     .navbar-home {
         background-color: #060724;
-        font-size: 30px;
-        display: inline-block;
+        font-size: 20px;
         text-align: center;
-        padding: 14px 16px;
         text-decoration: none;
         list-style-type: none;
         overflow: hidden;
+        width: 100%;
     }
-
+   
     .btn-outline-dark {
         background-color: green;
         border-color: green;
@@ -527,4 +542,9 @@ html {
         color: white;
     }
 
+    .navbar li {
+        list-style: none;
+    }
+
+    
 }

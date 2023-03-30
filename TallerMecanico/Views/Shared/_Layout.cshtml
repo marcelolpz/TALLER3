@@ -28,30 +28,31 @@
             var sesion = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
             UsuarioLoginVm usuarioObjeto = JsonConvert.DeserializeObject<UsuarioLoginVm>(sesion);
         }
-        <nav class="navbar navbar-expand-lg navbar-home">
-            <div class="container">
-                <a style="color:white; font-size:30px;" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <i class="bi bi-gear-fill"></i> Taller Mecánico</a>
+        <nav class="navbar navbar-expand-sm navbar-home">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <i class="bi bi-gear-fill"></i> Taller Mecánico Ensigna</a>
                 <div class="collapse navbar-collapse justify-content-end">
-                    
-                        @foreach (var menu in usuarioObjeto.Menu)
+
+                    @foreach (var menu in usuarioObjeto.Menu)
+                    {
+                        @if (menu.Modulos.Count > 0)
                         {
-                            @if (menu.Modulos.Count > 0)
+                            @foreach (var submenu in menu.Modulos)
                             {
-                                @foreach (var submenu in menu.Modulos)
-                                {
+                                <ul>
                                     <li>
-                                    <a class="dropdown-item" style="color:white; font-size:30px;" asp-area="" asp-controller="@submenu.Controller" asp-action="@submenu.Metodo">@submenu.Nombre</a>
+                                        <a class="nav-item" asp-area="" asp-controller="@submenu.Controller" asp-action="@submenu.Metodo">@submenu.Nombre</a>
                                     </li>
-                                }
+                                </ul>
                             }
                         }
-                   
+                    }
 
-                    <li class="nav-item">
-                        <a class="dropdown-item text-muted" style="color:white; font-size:30px; text-decoration-color:white;" asp-area="" asp-controller="Home" asp-action="CerrarSesion"> <i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-item text-muted" style="color:white; font-size:30px; text-decoration-color:white;" asp-area="" asp-controller="Home" asp-action="CerrarSesion"> <i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
                         </li>
-                   
-                   
+                    </ul>
                 </div>
             </div>
         </nav>
