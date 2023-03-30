@@ -87,9 +87,9 @@ html {
     }
 
     .left-login {
-        width: 680px;
+        width: 430px;
         color: white;
-        margin: 150px 10px 62px 110px;
+        margin: 80px 2px 10px 110px;
         padding: 0;
     }
 
@@ -106,27 +106,27 @@ html {
 
     .titulo-login {
         text-align: center;
-        margin: 0 20px;
+        margin: 0 10px 0 85px;
         padding: 0;
     }
 
     .fuente-input {
-        margin-right: 100px;
+        margin-right: 10px;
         margin-left: 0;
     }
 
     .titulo-login h1 {
-        font-size: 40px;
+        font-size: 22px;
     }
 
     .titulo-inicio {
         text-align: center;
-        margin: 0px 10px 10px 60px;
-        padding: 0px 10px 20px 20px;
+        margin: 0px 5px 5px 60px;
+        padding: 0px 5px 10px 10px;
     }
 
         .titulo-inicio h2 {
-            font-size: 30px;
+            font-size: 18px;
         }
 
     #form-design {
@@ -140,7 +140,7 @@ html {
     }
 
     .input-login {
-        padding: 0px 80px 0px 110px;
+        padding: 0px 60px 0px 90px;
     }
 
     #button-shape {
@@ -161,10 +161,22 @@ html {
         border: 1px solid #ccc;
         box-shadow: 2px 2px 5px #ccc;
         padding: 10px;
-        width: 1300px;
-        height: 600px;
+        width: 800px;
+        height: 500px;
         font-size: 28px;
-        margin-left: 400px;
+        text-align: center;
+        margin-left: 200px;
+    }
+
+    .card-recuperacion {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px #ccc;
+        padding: 10px;
+        width: 800px;
+        height: 500px;
+        font-size: 28px;
+        text-align: center;
+        margin-left: 200px;
     }
 
     .custom-input {
@@ -227,14 +239,14 @@ html {
 
     table {
         margin: 20px 40px 10px 40px;
-        padding: 2px 10px 2px 20px;
-        width: 2000px;
+        padding: 2px 5px 2px 10px;
+        width: 90%;
     }
 
     td, th {
         font-size: 18px;
-        width: 20%;
-        padding: 20px;
+        width: 30px;
+        padding: 10px;
         text-align: center;
     }
 
@@ -254,7 +266,7 @@ html {
     }
 
     .table-container-div {
-        width: 2000px;
+        width: 80%;
     }
 
     .div-insertar {
@@ -360,14 +372,14 @@ html {
     .left-login {
         width: 680px;
         color: white;
-        margin: 210px 10px 62px 110px;
+        margin: 90px 10px 62px 110px;
         padding: 0;
     }
 
     .social-buttons {
         display: block;
         margin: auto;
-        padding: 70px 0px 0px 20px;
+        padding: 10px 0px 0px 20px;
         font-size: 45px;
         color: white;
         width: 300px;
@@ -432,9 +444,21 @@ html {
         border: 1px solid #ccc;
         box-shadow: 2px 2px 5px #ccc;
         padding: 10px;
-        width: 1300px;
+        width: 900px;
         height: 600px;
         font-size: 28px;
+        text-align: center;
+        margin-left: 400px;
+    }
+
+    .card-recuperacion {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px #ccc;
+        padding: 10px;
+        width: 900px;
+        height: 600px;
+        font-size: 28px;
+        text-align: center;
         margin-left: 400px;
     }
 
@@ -496,15 +520,15 @@ html {
     }
 
     table {
-        margin: 20px 40px 10px 40px;
+        margin: 10px 30px 10px 30px;
         padding: 2px 10px 2px 20px;
-        width: 2000px;
+        width: 90%;
     }
 
     td, th {
         font-size: 18px;
-        width: 20%;
-        padding: 20px;
+        width: 10%;
+        padding: 5px;
         text-align: center;
     }
 
@@ -524,7 +548,8 @@ html {
     }
 
     .table-container-div {
-        width: 2000px;
+        width: 90%;
+        display: flex;
     }
 
     .div-insertar {
