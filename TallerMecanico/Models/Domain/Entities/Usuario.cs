@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Numerics;
+using TallerMecanico.Models.ViewModels;
 
 namespace TallerMecanico.Models.Domain.Entities
 {
@@ -14,6 +17,13 @@ namespace TallerMecanico.Models.Domain.Entities
         public Rol Rol { get; set; }
         public Guid RolId { get; set; }
         public string recovery { get; set; }
+        public ICollection<Vehiculo> Vehiculos { get; set; }
+        public ICollection<VehiculoMecanico> VehiculoMecanicos { get; set; }
+        public Usuario()
+        {
+            Vehiculos = new HashSet<Vehiculo>();
+            VehiculoMecanicos = new HashSet<VehiculoMecanico>();
+        }
 
         public static Usuario Create(string nombre, string apellido, string correo, string password, Guid rolId)
         {

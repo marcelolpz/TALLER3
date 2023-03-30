@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TallerMecanico.Models.Domain.Entities
 {
@@ -7,6 +8,11 @@ namespace TallerMecanico.Models.Domain.Entities
         public Guid idEstado { get; set; }
         public string Nombre { get; set; }
         public bool Eliminado { get; set; }
+        public ICollection<VehiculoMecanico> VehiculoMecanicos { get; set; }
+        public Estado()
+        {
+            VehiculoMecanicos = new HashSet<VehiculoMecanico>();
+        }
 
         public static Estado Create(string nombre)
         {

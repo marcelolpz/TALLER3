@@ -1,0 +1,64 @@
+﻿@using TallerMecanico.Models.ViewModels
+@model List<VehiculoVm>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<form asp-action="Insertar" method="get">
+    <div class="row">
+        <div class="danger">
+            @if (TempData["mensaje"] != null)
+            {
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <p>@TempData["mensaje"]</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @*<td>@Html.ActionLink("Buscar","Buscar","Personas", new {@class = "btn btn-info"})</td>*@
+        <input type="submit" value="Agregar" class="btn btn-success">
+    </div>
+
+    @if (Model.Count > 0)
+    {
+        <div class="ScrollB">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Color</th>
+                        <th>Placa</th>
+                        <th>Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Modelo.Nombre</td>
+                            <td>@item.Color.Nombre</td>
+                            <td>@item.Placa</td>
+                            <td>@item.Usuario.Nombre</td>
+
+                            <td>
+                                @Html.ActionLink("Editar","Editar","Vehiculo", new{@VehiculoId = item.VehiculoId}, new {@class = "btn btn-warning"})
+                                @Html.ActionLink("Eliminar","Eliminar","Vehiculo", new{@VehiculoId = item.VehiculoId}, new {@class = "btn btn-danger"})
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
+</form>
