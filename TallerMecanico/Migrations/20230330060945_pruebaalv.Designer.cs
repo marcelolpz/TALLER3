@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TallerMecanico.Models.Domain;
 
 namespace TallerMecanico.Migrations
 {
     [DbContext(typeof(TallerMecanicoDBContext))]
-    partial class TallerMecanicoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230330060945_pruebaalv")]
+    partial class pruebaalv
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

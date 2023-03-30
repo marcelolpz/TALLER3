@@ -16,5 +16,25 @@ namespace TallerMecanico.Models.Domain.Entities
         {
             Modulos = new HashSet<Modulo>();
         }
+        public static AgrupadoModulos Create(string Descripcion)
+        {
+            return new AgrupadoModulos
+            {
+                Id = Guid.NewGuid(),
+                Descripcion = Descripcion,
+                CreatedDate = DateTime.Now,
+            };
+
+        }
+        public void Update(string Descripcion)
+        {
+            {
+                this.Descripcion = Descripcion;
+            };
+        }
+        public void Delete()
+        {
+            this.Eliminado = true;
+        }
     }
 }
