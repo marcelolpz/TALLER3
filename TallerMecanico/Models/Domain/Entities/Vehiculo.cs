@@ -15,5 +15,32 @@ namespace TallerMecanico.Models.Domain.Entities
         public Guid UsuarioId { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool Eliminado { get; set; }
+
+
+        public static Vehiculo Create(Guid modeloId, Guid colorId, string matricula,Guid usuarioId)
+        {
+            return new Vehiculo
+            {
+                ModeloId = modeloId,
+                ColorId = colorId,
+                Placa = matricula,
+                UsuarioId = usuarioId,
+                CreatedDate = DateTime.Today,
+                VehiculoId = Guid.NewGuid(),
+            };
+        }
+
+        public void Update(Guid modeloId, Guid colorId, string matricula, Guid usuarioId)
+        {
+            this.ModeloId = modeloId;
+            this.ColorId = colorId;
+            this.Placa = matricula;
+            this.UsuarioId = usuarioId;
+        }
+
+        public void Delete()
+        {
+            this.Eliminado = true;
+        }
     }
 }

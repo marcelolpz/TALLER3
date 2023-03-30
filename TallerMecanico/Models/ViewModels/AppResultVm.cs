@@ -1,8 +1,10 @@
-﻿namespace Examen.Models.ViewModels
+﻿using System;
+
+namespace Examen.Models.ViewModels
 {
     public class AppResultVm
     {
-        public bool IsValid { get; set; }
+        public Boolean IsValid { get; set; }
         public string Mensaje { get; set; }
         public object Data { get; set; }
         public static AppResultVm NoSuccess(string mensaje)

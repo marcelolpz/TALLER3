@@ -1,0 +1,60 @@
+﻿@using TallerMecanico.Models.ViewModels
+@model VehiculoMecanicoVm
+@{
+    ViewData["Title"] = "Insertar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="">
+    <div class="">
+        <form method="post" asp-action="Insertar">
+            <h1>Insertar</h1>
+            <div class="">
+                <div class="danger">
+                    @if (TempData["mensaje"] != null)
+                    {
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <p>@TempData["mensaje"]</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="">
+                <label for="VehiculoId" nam class="">vehiculos</label>
+                @Html.DropDownList("VehiculoId",Model.Vehiculoss,"Seleccione un vehiculo", new{@class="form-control"})
+            </div>
+            <div class="">
+                <label for="UsuarioId" nam class="">usuarios</label>
+                @Html.DropDownList("UsuarioId",Model.Usuarioss,"Seleccione un usuario", new{@class="form-control"})
+            </div>
+            <div class="">
+                <label for="EstadoId" nam class="">estados</label>
+                @Html.DropDownList("EstadoId",Model.Estadoss,"Seleccione un estado", new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label asp-for="Diagnostico" class=""></label>
+                <input asp-for="Diagnostico" class="form-control" />
+                <span asp-validation-for="Diagnostico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comentario" class=""></label>
+                <input asp-for="Comentario" class="form-control" />
+                <span asp-validation-for="Comentario" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <td><input type="submit" value="Insertar" class="btn btn-success" /></td>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
