@@ -19,5 +19,26 @@ namespace TallerMecanico.Models.Domain.Entities
             ModulosRoles = new HashSet<ModulosRoles>();
             Usuarios = new HashSet<Usuario>();
         }
+        public static Rol Create(string Descripcion, string Descripcion2)
+        {
+            return new Rol
+            {
+                Id = Guid.NewGuid(),
+                Descripcion = Descripcion,
+                Descripcion2 = Descripcion2,
+                CreatedDate = DateTime.Now,
+            };
+        }
+        public void Update(string Descripcion, string Descripcion2)
+        {
+            {
+                this.Descripcion = Descripcion;
+                this.Descripcion2 = Descripcion2;
+            };
+        }
+        public void Delete()
+        {
+            this.Eliminado = true;
+        }
     }
 }
