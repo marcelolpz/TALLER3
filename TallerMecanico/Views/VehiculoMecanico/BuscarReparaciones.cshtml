@@ -1,18 +1,11 @@
 ﻿@using TallerMecanico.Models.ViewModels
 @model List<VehiculoMecanicoVm>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "BuscarReparaciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<div>
-    <button onclick="location.href='@Url.Action("ExportToPdf", "VehiculoMecanico")'" class="btn btn-danger">Exportar a PDF</button>
-    <button type="button" onclick="location.href='@Url.Action("ExportToExcel", "VehiculoMecanico")'" class="btn btn-success">Exportar a Excel</button>
-</div>
-
-<br>
-<br>
+<h1>BuscarReparaciones</h1>
 <form asp-action="Insertar" method="get">
     <div class="row">
         <div class="danger">
@@ -58,12 +51,6 @@
                             <td>@item.Diagnostico</td>
                             <td>@item.Comentario</td>
                             <td>@item.Estado.Nombre</td>
-
-                            <td>
-                                @Html.ActionLink("Editar","Editar","VehiculoMecanico", new{@VehiculoMecanicoId = item.VehiculoMecanicoId}, new {@class = "btn btn-warning"})
-                                @Html.ActionLink("Eliminar","Eliminar","VehiculoMecanico", new{@VehiculoMecanicoId = item.VehiculoMecanicoId}, new {@class = "btn btn-danger"})
-                            </td>
-
                         </tr>
                     }
                 </tbody>

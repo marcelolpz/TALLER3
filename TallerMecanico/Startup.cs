@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace TallerMecanico
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
             services.AddControllersWithViews();
             services.AddDbContext<TallerMecanicoDBContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConection")));
@@ -36,6 +39,7 @@ namespace TallerMecanico
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
             services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

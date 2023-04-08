@@ -6,6 +6,10 @@ namespace TallerMecanico.Models.Domain
 {
     public class TallerMecanicoDBContext : DbContext
     {
+        public TallerMecanicoDBContext()
+        {
+        }
+
         public TallerMecanicoDBContext(DbContextOptions<TallerMecanicoDBContext> options) : base(options) { }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Rol> Rol { get; set; } 
