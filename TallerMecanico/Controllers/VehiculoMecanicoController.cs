@@ -362,6 +362,11 @@ namespace TallerMecanico.Controllers
                 nameHeader.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(nameHeader);
 
+                var vehiculoHeader = new PdfPCell(new Phrase("Vehiculo", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                vehiculoHeader.BackgroundColor = headerColor;
+                vehiculoHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(vehiculoHeader);
+
 
                 var diagHeader = new PdfPCell(new Phrase("Diagnostico", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
                 diagHeader.BackgroundColor = headerColor;
@@ -387,6 +392,7 @@ namespace TallerMecanico.Controllers
                     {
                        new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
                        new PdfPCell(new Phrase(vehiculoMecanico.UsuarioId.ToString())),
+                       new PdfPCell(new Phrase(vehiculoMecanico.VehiculoId.ToString())),
                        new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
                        new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
                         new PdfPCell(new Phrase(vehiculoMecanico.EstadoId.ToString()))
