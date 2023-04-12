@@ -5,7 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div>
+    <button onclick="location.href='@Url.Action("ExportToPdf", "Vehiculo")'" class="btn btn-danger">Exportar a PDF</button>
+    <button type="button" onclick="location.href='@Url.Action("ExportToExcel", "Vehiculo")'" class="btn btn-success">Exportar a Excel</button>
+</div>
+
+<br>
+<br>h1>
 <form asp-action="Insertar" method="get">
     <div class="row">
         <div class="danger">
