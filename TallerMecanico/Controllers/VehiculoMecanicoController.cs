@@ -387,11 +387,11 @@ namespace TallerMecanico.Controllers
                     var row = new PdfPRow(new PdfPCell[]
                     {
         new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
-        new PdfPCell(new Phrase(vehiculoMecanico.Usuario.Nombre)),
-        new PdfPCell(new Phrase(vehiculoMecanico.Vehiculo.Placa)),
+        new PdfPCell(new Phrase(vehiculoMecanico.Usuario.Nombre.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.Vehiculo.Placa.ToString())),
         new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
         new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
-        new PdfPCell(new Phrase(vehiculoMecanico.Estado.Nombre))
+        new PdfPCell(new Phrase(vehiculoMecanico.Estado.Nombre.ToString()))
                     });
                     table.Rows.Add(row);
                 }
