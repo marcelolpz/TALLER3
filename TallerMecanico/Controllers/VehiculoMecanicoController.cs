@@ -381,16 +381,20 @@ namespace TallerMecanico.Controllers
                 estaHeader.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(estaHeader);
 
-
-                foreach (var vehiculoMecanico in vehiculoMecanicos )
+                foreach (var vehiculoMecanico in vehiculoMecanicos)
                 {
-                    table.AddCell(vehiculoMecanico.VehiculoMecanicoId.ToString());
-                    table.AddCell(vehiculoMecanico.UsuarioId.ToString());
-                    table.AddCell(vehiculoMecanico.Diagnostico);
-                    table.AddCell(vehiculoMecanico.Comentario);
-                    table.AddCell(vehiculoMecanico.EstadoId.ToString());
-
+                    var row = new PdfPRow(new PdfPCell[]
+                    {
+                       new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
+                       new PdfPCell(new Phrase(vehiculoMecanico.UsuarioId.ToString())),
+                       new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
+                       new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
+                        new PdfPCell(new Phrase(vehiculoMecanico.EstadoId.ToString()))
+                    });
+                    table.Rows.Add(row);
                 }
+
+
 
                 doc.Add(table);
                 doc.Close();
@@ -422,14 +426,14 @@ namespace TallerMecanico.Controllers
                 titleCell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
 
-                worksheet.Cells["A2"].Value = "Estados";
+                worksheet.Cells["A2"].Value = "Vehiculo Mecanico";
 
                 worksheet.Cells["A3"].Value = "Id";
                 worksheet.Cells["B3"].Value = "Usuario"; 
                 worksheet.Cells["C3"].Value = "VehiculoId";
                 worksheet.Cells["D3"].Value = "Diagnostico";
-                worksheet.Cells["F3"].Value = "Comentario";
-                worksheet.Cells["G3"].Value = "Estado";
+                worksheet.Cells["E3"].Value = "Comentario";
+                worksheet.Cells["F3"].Value = "Estado";
 
                 int row = 4;
                 foreach (var vehiculoMecanico in vehiculoMecanicos)
@@ -438,13 +442,22 @@ namespace TallerMecanico.Controllers
                     worksheet.Cells[$"B{row}"].Value = vehiculoMecanico.UsuarioId;
                     worksheet.Cells[$"C{row}"].Value = vehiculoMecanico.VehiculoId;
                     worksheet.Cells[$"D{row}"].Value = vehiculoMecanico.Diagnostico;
-                    worksheet.Cells[$"F{row}"].Value = vehiculoMecanico.Comentario;
-                    worksheet.Cells[$"G{row}"].Value = vehiculoMecanico.EstadoId;
+                    worksheet.Cells[$"E{row}"].Value = vehiculoMecanico.Comentario;
+                    worksheet.Cells[$"F{row}"].Value = vehiculoMecanico.EstadoId;
 
                     row++;
                 }
 
                 worksheet.Cells.AutoFitColumns();
+
+                // Establecer bordes
+                var allCells = worksheet.Cells[worksheet.Dimension.Address];
+                var border = allCells.Style.Border;
+                border.Top.Style = ExcelBorderStyle.Thin;
+                border.Bottom.Style = ExcelBorderStyle.Thin;
+                border.Left.Style = ExcelBorderStyle.Thin;
+                border.Right.Style = ExcelBorderStyle.Thin;
+
 
                 var stream = new MemoryStream();
                 package.SaveAs(stream);
