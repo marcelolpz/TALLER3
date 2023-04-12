@@ -346,64 +346,64 @@ namespace TallerMecanico.Controllers
                 doc.Add(new Paragraph("Vehiculo Mecánico", titleFont));
                 doc.Add(new Paragraph("\n")); // Agrega un salto de línea
 
-                var table = new PdfPTable(2);
+
+                var table = new PdfPTable(6);
                 table.WidthPercentage = 100;
-                // Crear objeto BaseColor para representar el color #060724
+
                 BaseColor headerColor = new BaseColor(6, 7, 36);
 
-                // Crear encabezados de tabla y establecer el color de fondo y texto
                 var idHeader = new PdfPCell(new Phrase("Vehiculo Mecánico Id", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
                 idHeader.BackgroundColor = headerColor;
                 idHeader.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(idHeader);
 
-                var nameHeader = new PdfPCell(new Phrase("Id de usuario", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                nameHeader.BackgroundColor = headerColor;
-                nameHeader.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(nameHeader);
+                var userIdHeader = new PdfPCell(new Phrase("Id de usuario", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                userIdHeader.BackgroundColor = headerColor;
+                userIdHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(userIdHeader);
 
-                var vehiculoHeader = new PdfPCell(new Phrase("Vehiculo", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                vehiculoHeader.BackgroundColor = headerColor;
-                vehiculoHeader.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(vehiculoHeader);
+                var vehiculoIdHeader = new PdfPCell(new Phrase("Vehiculo Id", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                vehiculoIdHeader.BackgroundColor = headerColor;
+                vehiculoIdHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(vehiculoIdHeader);
 
+                var diagnosticoHeader = new PdfPCell(new Phrase("Diagnostico", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                diagnosticoHeader.BackgroundColor = headerColor;
+                diagnosticoHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(diagnosticoHeader);
 
-                var diagHeader = new PdfPCell(new Phrase("Diagnostico", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                diagHeader.BackgroundColor = headerColor;
-                diagHeader.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(diagHeader);
+                var comentarioHeader = new PdfPCell(new Phrase("Comentario", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                comentarioHeader.BackgroundColor = headerColor;
+                comentarioHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(comentarioHeader);
 
-
-                var comenHeader = new PdfPCell(new Phrase("Comentario", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                comenHeader.BackgroundColor = headerColor;
-                comenHeader.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(comenHeader);
-
-
-
-                var estaHeader = new PdfPCell(new Phrase("Id estado", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                estaHeader.BackgroundColor = headerColor;
-                estaHeader.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(estaHeader);
+                var estadoIdHeader = new PdfPCell(new Phrase("Id estado", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                estadoIdHeader.BackgroundColor = headerColor;
+                estadoIdHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(estadoIdHeader);
 
                 foreach (var vehiculoMecanico in vehiculoMecanicos)
                 {
                     var row = new PdfPRow(new PdfPCell[]
                     {
-                       new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
-                       new PdfPCell(new Phrase(vehiculoMecanico.UsuarioId.ToString())),
-                       new PdfPCell(new Phrase(vehiculoMecanico.VehiculoId.ToString())),
-                       new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
-                       new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
-                        new PdfPCell(new Phrase(vehiculoMecanico.EstadoId.ToString()))
+        new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.UsuarioId.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.VehiculoId.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
+        new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
+        new PdfPCell(new Phrase(vehiculoMecanico.EstadoId.ToString()))
                     });
                     table.Rows.Add(row);
                 }
 
-
-
                 doc.Add(table);
                 doc.Close();
+
+
+
+
+
+
 
                 return File(ms.ToArray(), "application/pdf", "vehiculoMecanico.pdf");
             }
