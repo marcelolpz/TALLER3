@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using TallerMecanico.Models.ViewModels;
 
 namespace TallerMecanico.Models.Domain.Entities
 {
@@ -19,6 +20,35 @@ namespace TallerMecanico.Models.Domain.Entities
         public Modulo()
         {
             ModulosRoles = new HashSet<ModulosRoles>();
+        }
+
+        public static Modulo Create(string Nombre, string Metodo, string Controller, Guid AgrupadoModulosId, DateTime CreatedDate, Guid CreatedBy)
+        {
+            return new Modulo
+            {
+                Id = Guid.NewGuid(),
+                Nombre = Nombre,
+                Metodo = Metodo,
+                Controller = Controller,
+                AgrupadoModulosId = AgrupadoModulosId,
+                CreatedDate = CreatedDate,
+                CreatedBy = CreatedBy,
+            };
+        }
+        public void Update(string Nombre, string Metodo, string Controller, Guid AgrupadoModulosId, DateTime CreatedDate, Guid CreatedBy)
+        {
+            {
+                this.Nombre = Nombre;
+                this.Metodo = Metodo;
+                this.Controller = Controller;
+                this.AgrupadoModulosId = AgrupadoModulosId;
+                this.CreatedDate = CreatedDate;
+                this.CreatedBy = CreatedBy;
+            };
+        }
+        public void Delete()
+        {
+            this.Eliminado = true;
         }
     }
 }
