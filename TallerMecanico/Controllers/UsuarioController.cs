@@ -231,6 +231,11 @@ namespace TallerMecanico.Controllers
                     passwordHeader.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(passwordHeader);
 
+                    var rolIdHeader = new PdfPCell(new Phrase("Rol Id", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                    rolIdHeader.BackgroundColor = headerColor;
+                    rolIdHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(passwordHeader);
+
 
 
 
@@ -241,6 +246,7 @@ namespace TallerMecanico.Controllers
                         table.AddCell(usuario.Apellido);
                         table.AddCell(usuario.Correo);
                         table.AddCell(usuario.Password);
+                        table.AddCell(usuario.RolId.ToString());
                     }
 
                     doc.Add(table);
@@ -279,6 +285,7 @@ namespace TallerMecanico.Controllers
                     worksheet.Cells["C3"].Value = "Apellido";
                     worksheet.Cells["D3"].Value = "Correo";
                     worksheet.Cells["E3"].Value = "Password";
+                    worksheet.Cells["F3"].Value = "Rol";
 
                     int row = 4;
                     foreach (var Usuario in usuarios)
@@ -287,7 +294,8 @@ namespace TallerMecanico.Controllers
                         worksheet.Cells[$"B{row}"].Value = Usuario.Nombre;
                         worksheet.Cells[$"C{row}"].Value = Usuario.Apellido;
                         worksheet.Cells[$"D{row}"].Value = Usuario.Correo;
-                        worksheet.Cells[$"B{row}"].Value = Usuario.Password;
+                        worksheet.Cells[$"E{row}"].Value = Usuario.Password;
+                        worksheet.Cells[$"F{row}"].Value = Usuario.RolId;
 
 
                         row++;
