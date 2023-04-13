@@ -387,23 +387,17 @@ namespace TallerMecanico.Controllers
                     var row = new PdfPRow(new PdfPCell[]
                     {
         new PdfPCell(new Phrase(vehiculoMecanico.VehiculoMecanicoId.ToString())),
-        new PdfPCell(new Phrase(vehiculoMecanico.Usuario.Nombre.ToString())),
-        new PdfPCell(new Phrase(vehiculoMecanico.Vehiculo.Placa.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.UsuarioId.ToString())),
+        new PdfPCell(new Phrase(vehiculoMecanico.VehiculoId.ToString())),
         new PdfPCell(new Phrase(vehiculoMecanico.Diagnostico)),
         new PdfPCell(new Phrase(vehiculoMecanico.Comentario)),
-        new PdfPCell(new Phrase(vehiculoMecanico.Estado.Nombre.ToString()))
+        new PdfPCell(new Phrase(vehiculoMecanico.EstadoId.ToString()))
                     });
                     table.Rows.Add(row);
                 }
 
                 doc.Add(table);
                 doc.Close();
-
-
-
-
-
-
 
                 return File(ms.ToArray(), "application/pdf", "vehiculoMecanico.pdf");
             }
@@ -445,11 +439,11 @@ namespace TallerMecanico.Controllers
                 foreach (var vehiculoMecanico in vehiculoMecanicos)
                 {
                     worksheet.Cells[$"A{row}"].Value = vehiculoMecanico.VehiculoMecanicoId;
-                    worksheet.Cells[$"B{row}"].Value = vehiculoMecanico.Usuario.Nombre;
-                    worksheet.Cells[$"C{row}"].Value = vehiculoMecanico.Vehiculo.Placa;
+                    worksheet.Cells[$"B{row}"].Value = vehiculoMecanico.UsuarioId;
+                    worksheet.Cells[$"C{row}"].Value = vehiculoMecanico.VehiculoId;
                     worksheet.Cells[$"D{row}"].Value = vehiculoMecanico.Diagnostico;
                     worksheet.Cells[$"E{row}"].Value = vehiculoMecanico.Comentario;
-                    worksheet.Cells[$"F{row}"].Value = vehiculoMecanico.Estado.Nombre;
+                    worksheet.Cells[$"F{row}"].Value = vehiculoMecanico.EstadoId;
 
                     row++;
                 }
