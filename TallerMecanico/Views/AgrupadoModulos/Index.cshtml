@@ -4,6 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<div>
+    <button onclick="location.href='@Url.Action("ExportToPdf", "Agrupado")'" class="btn btn-danger">Exportar a PDF</button>
+    <button type="button" onclick="location.href='@Url.Action("ExportToExcel", "Agrupado")'" class="btn btn-success">Exportar a Excel</button>
+</div>
+
+
 <form asp-action="Insertar" method="get">
     <br>
     <br>
