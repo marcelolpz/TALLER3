@@ -322,8 +322,6 @@ namespace TallerMecanico.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.HasIndex("VehiculoId");
-
                     b.ToTable("VehiculoMecanico");
                 });
 
@@ -420,17 +418,9 @@ namespace TallerMecanico.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TallerMecanico.Models.Domain.Entities.Vehiculo", "Vehiculo")
-                        .WithMany()
-                        .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Estado");
 
                     b.Navigation("Usuario");
-
-                    b.Navigation("Vehiculo");
                 });
 
             modelBuilder.Entity("TallerMecanico.Models.Domain.Entities.AgrupadoModulos", b =>
